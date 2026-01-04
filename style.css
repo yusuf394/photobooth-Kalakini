@@ -1,0 +1,334 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Warm Color Palette */
+    --coral: #FF6B6B;
+    --peach: #FFD93D;
+    --orange: #FF8C42;
+    --soft-pink: #FFB6C1;
+    --warm-yellow: #FFE66D;
+    --green: #6BCB77;
+    --light-bg: #FFF5E6;
+    --white: #FFFFFF;
+    --text-dark: #333333;
+    --text-light: #666666;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, var(--light-bg) 0%, #FFE5CC 100%);
+    color: var(--text-dark);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(255, 107, 107, 0.2);
+    overflow: hidden;
+    padding: 30px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--coral) 0%, var(--orange) 100%);
+    border-radius: 20px;
+    color: var(--white);
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tagline {
+    font-size: 1.1rem;
+    font-weight: 600;
+    opacity: 0.95;
+}
+
+/* Main Content */
+.main-content {
+    padding: 20px 0;
+}
+
+/* Camera Section */
+.camera-section {
+    margin-bottom: 30px;
+}
+
+.camera-container {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto 20px;
+    background: var(--text-dark);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    aspect-ratio: 4 / 3;
+}
+
+#videoElement {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.filter-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.capture-indicator {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    z-index: 20;
+    backdrop-filter: blur(10px);
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--coral) 0%, var(--orange) 100%);
+    color: var(--white);
+}
+
+.btn-capture {
+    background: linear-gradient(135deg, var(--green) 0%, #4ECDC4 100%);
+    color: var(--white);
+    font-size: 1.2rem;
+    padding: 18px 35px;
+}
+
+.btn-secondary {
+    background: var(--text-light);
+    color: var(--white);
+}
+
+.btn-download {
+    background: linear-gradient(135deg, var(--peach) 0%, var(--warm-yellow) 100%);
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+/* Filter Selection */
+.filter-selection {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--light-bg);
+    border-radius: 15px;
+}
+
+.filter-selection h3 {
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 12px 20px;
+    border: 2px solid var(--coral);
+    background: var(--white);
+    color: var(--coral);
+    border-radius: 25px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: var(--coral);
+    color: var(--white);
+    transform: scale(1.05);
+}
+
+.filter-btn.active {
+    background: var(--coral);
+    color: var(--white);
+}
+
+/* Strip Section */
+.strip-section {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: var(--light-bg);
+    border-radius: 20px;
+}
+
+.strip-section h2 {
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    font-size: 1.8rem;
+}
+
+.strip-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+#stripCanvas {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background: var(--white);
+}
+
+.strip-section .controls {
+    margin-top: 25px;
+}
+
+/* Captured Photos */
+.captured-photos {
+    margin-top: 30px;
+    padding: 20px;
+    background: var(--light-bg);
+    border-radius: 15px;
+}
+
+.captured-photos h3 {
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.photo-gallery {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.photo-gallery img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid var(--coral);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        border-radius: 20px;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .camera-container {
+        border-radius: 15px;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+
+    .btn-capture {
+        font-size: 1rem;
+        padding: 15px 30px;
+    }
+
+    .filter-buttons {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Loading State */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--white);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
